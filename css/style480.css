@@ -1,0 +1,77 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+  font-weight: bolder;
+}
+body{
+  background-image: url('../imagens/fundo_login_top.svg');
+  background-size: 94vw;
+  background-repeat: no-repeat;
+}
+header a img{
+    margin: 15px;
+    padding: 10px;
+}
+
+main{
+ text-align: center;
+}
+
+h1{
+  font-size: 55px;
+  margin: 10px 20px 30px 20px;
+  color: #fff;
+  
+}
+
+input {
+  font-size: 18px;
+  text-align: center;
+  border-radius: 15px;
+  margin: 12px;
+  padding: 14px 8px 14px 8px;
+  width: 80vw;
+  border-style: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.486);
+  background-color: #fff;}
+
+a{
+  text-decoration: none;
+  color: #233C7A;
+  
+}
+
+main :nth-child(4){
+  margin-left: 20%;
+}
+
+form :nth-last-child(1){
+  margin-top: 50px;
+  border-radius: 14px;
+  font-size: 22px;
+  background-color: #02A7F0;
+  border-style: none;
+  color: #fff;
+}
+
+footer{
+  text-align: center;
+  background-image: url('../imagens/fundo_login_bottom.svg');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  
+}
+
+button{
+  font-size: 22px;
+  text-align: center;
+  border-radius: 15px;
+  margin: 20vh 12px 40px 12px;
+  padding: 14px 8px 14px 8px;
+  width: 70vw;
+  border-style: none;
+  color: #02A7F0;
+  background-color: #fff;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.486);
+}

@@ -1,0 +1,14 @@
+#cabecalho {
+    height: 100px;
+    width: 100vw;
+    background-color: blueviolet;
+    margin-bottom: 30px;
+}
+
+.recursos {
+    display: inline-block;
+    height: 200px;
+    width: 40vw;
+    background-color: blueviolet;
+    text-align: center;
+}
