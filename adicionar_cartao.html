@@ -27,54 +27,89 @@
             <a href="categorias.html"><img src='imagens/icone_voltar.png' alt=''></a>
         </header>
         <main> 
-            <form>
+            <form method="GET">
                 <img><img>
                 <input type="file" id="img" name="img_cartao" accept="image/*">
                 <input type="text" name="nome_cartao">
-                <input type="file" name="audio_cartao" accept="audio/*" capture="microphone" id="recorder">
-                <button type="button" id="stop"onclick="playAudio()"></button>
+                <input type="file" name="audio_cartao" accept="audio/*" capture="microphone" id="audio_input" value="Audio.ogg">
+                <div>
+                    <button type="button" id="record"><img src="imagens/icone_falar.gif"></button>
+                    <button type="button" id="stop"><img src="imagens/icone_play.gif" id="imgPlay"></button>
+                </div>
+                
                 <audio id="player" controls></audio>
-		<a id=download>Download</a>
                 <input type="submit" value="Adicionar">
             </form>
         </main>
         <script>
-		    
-	  let shouldStop = false;
-	  let stopped = false;
-	  const stopButton = document.getElementById('stop');
-const downloadlink = document.getElementById('download')
+            if (navigator.mediaDevices) {
+                console.log('getUserMedia supported.');
 
-	  stopButton.addEventListener('click', function() {
-	    shouldStop = true;
-	  })
+                var constraints = { audio: true };
+                var chunks = [];
 
-	  var handleSuccess = function(stream) {  
-	    const options = {mimeType: 'video/webm;codecs=vp9'};
-	    const recordedChunks = [];
-	    const mediaRecorder = new MediaRecorder(stream, options);  
+                navigator.mediaDevices.getUserMedia(constraints)
+                .then(function(stream) {
+                    
+                    var mediaRecorder = new MediaRecorder(stream);
+                    
+                    var playing = false;
+                    var recording = false;
+                    var record = document.getElementById('record');
+                    var stop = document.getElementById('stop');
+                    
+                    record.onclick = function() {
+                        
+                        if (recording) {
+                            recording = false;
+                            mediaRecorder.stop();
+                            console.log(mediaRecorder.state);
+                            console.log("recorder stopped");
+                            record.style.backgroundColor = "#8100E6";
+                        }else{
+                            recording = true;
+                            mediaRecorder.start();
+                            console.log(mediaRecorder.state);
+                            console.log("recorder started");
+                            record.style.backgroundColor = "red";
+                        }
+                    }
+                    
+                    mediaRecorder.onstop = function(e) {
+                    console.log("data available after MediaRecorder.stop() called.");
+                    
+                    var audio = document.getElementById('player');
+                    audio.controls = true;
+                    var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
+                    chunks = [];
+                    var audioURL = URL.createObjectURL(blob);
+                    audio.src = audioURL;
 
-	    mediaRecorder.addEventListener('dataavailable', function(e) {
-	      if (e.data.size > 0) {
-		recordedChunks.push(e.data);
-	      }
+                    var img = document.getElementById('imgPlay');
+                    stop.onclick = function() {
+                        if (playing) {
+                            img.src = "imagens/icone_pause.gif";
+                            playing = false;
+                            audio.pause();
+                        }else{
+                            img.src = "imagens/icone_play.gif";
+                            playing = true;
+                            audio.play();
+                        }
+                    }
 
-	      if(shouldStop === true && stopped === false) {
-		mediaRecorder.stop();
-		stopped = true;
-	      }
-	    });
+                    console.log("recorder stopped");
 
-	    mediaRecorder.addEventListener('stop', function() {
-	      downloadLink.href = URL.createObjectURL(new Blob(recordedChunks));
-	      downloadLink.download = 'acetest.wav';
-	    });
+                    }
 
-	    mediaRecorder.start();
-	  };
-
-	  navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-	      .then(handleSuccess);
+                    mediaRecorder.ondataavailable = function(e) {
+                    chunks.push(e.data);
+                    }
+                })
+                .catch(function(err) {
+                    console.log('The following error occurred: ' + err);
+                })
+                }
 
         </script>
         
