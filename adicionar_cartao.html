@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>NAUT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/adicionar_cartao_default.css">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="application-name" content=StackOverflow>
+
+        <!--favicon, arquivo de imagem podendo ser 8x8 - 16x16 - 32x32px com extensão .ico-->
+        <link rel="shortcut icon" href="" type="image;x-icon">
+
+        
+        <!-- Telas Responsivas-->
+        <link rel=stylesheet media="screen and (max-width:480px)" href="css/adicionar_cartao_style480.css">
+        <link rel=stylesheet media="screen and (min-width:481px) and (max-width:768px)" href="css/adicionar_cartao_style768.css"> 
+         
+        <!-- Fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <a href="categorias.html"><img src='imagens/icone_voltar.png' alt=''></a>
+        </header>
+        <main> 
+            <form>
+                <img><img>
+                <input type="file" id="img" name="img_cartao" accept="image/*">
+                <input type="text" name="nome_cartao">
+                <input type="file" name="audio_cartao" accept="audio/*" capture="microphone" id="recorder">
+                <button type="button" onclick="playAudio()"></button>
+                <audio id="player" controls></audio>
+                <input type="submit" value="Adicionar">
+            </form>
+        </main>
+        <script>
+            var recorder = document.getElementById("recorder");
+
+            recorder.addEventListener('change', function(e) {
+                var file = e.target.files[0];
+                player.src = URL.createObjectURL(file);
+                alert(player.src);
+            });
+
+            var player = document.getElementById('player');
+
+            var handleSuccess = function(stream) {
+            if (window.URL) {
+                player.src = window.URL.createObjectURL(stream);alert(player.src);
+            } else {
+                player.src = stream;alert(player.src);
+            }
+            };
+
+            navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+                .then(handleSuccess)
+        </script>
+        
+    </body>
+</html>    

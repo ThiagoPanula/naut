@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>NAUT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/categorias_default.css">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="application-name" content=StackOverflow>
+
+        <!--favicon, arquivo de imagem podendo ser 8x8 - 16x16 - 32x32px com extensão .ico-->
+        <link rel="shortcut icon" href="" type="image;x-icon">
+
+        
+        <!-- Telas Responsivas-->
+        <link rel=stylesheet media="screen and (max-width:480px)" href="css/categorias_style480.css">
+        <link rel=stylesheet media="screen and (min-width:481px) and (max-width:768px)" href="css/categorias_style768.css"> 
+         
+        <!-- Fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <a href="menu_inicial_filho_institucional.html"><img src='imagens/icone_voltar.png' alt=''></a>
+        </header>
+        <main> 
+            <div id="categorias">
+                <a href="cartoes.html"><img src="imagens/icone_emocoes.gif"><p>Emoções</p></a>
+                <a href=""><img src="imagens/icone_necessidades.gif"><p>Necessidades</p></a>
+                <a href=""><img src="imagens/icone_comida.gif"><p>Comida</p></a>
+                <a href=""><img src="imagens/icone_alfabeto.gif"><p>Alfabeto</p></a>
+                <a href=""><img src="imagens/icone_numero.gif"><p>Números</p></a>
+                <a href=""><img src="imagens/icone_roupa.gif"><p>Roupa</p></a>
+                <button type="button" onclick="showForm()"><img src="imagens/icone_criar.gif"><p>Criar</p></button>
+            </div>
+            <form id="newCategoria" action="" method="POST">
+                <input type="text" placeholder="Nome da Categoria" >
+                <br>
+                <input type="submit" value="Criar">
+                <button type="button" onclick="showForm()" >Cancelar</button>
+            </form>
+        </main>
+        <script src="java/script_showHiddenForm.js"></script>
+        
+    </body>
+</html>
