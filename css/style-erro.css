@@ -1,0 +1,60 @@
+body {
+    background-color: #C1DDEE;
+    font-family: 'Poppins', sans-serif;
+    margin: 20px; 
+    height: 100vh;
+}
+
+main {
+    color: #616472;
+    font-weight: bold;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+p {
+   
+}
+
+footer {
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    width: 100vw;
+}
+
+#container {
+    
+/*    display: flex; */ 
+    text-align: center;
+    justify-content: center;
+}
+
+.txt-404 {
+    font-size: 60px;
+}
+
+.txt-erro {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.erro-inicio {
+    border: none;
+    border-radius: 5px;
+    background-color: #3C91E6;
+    color: #F2F2F2;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    justify-content: center;
+    padding: 22px 60px;
+    text-align: center;
+
+
+}

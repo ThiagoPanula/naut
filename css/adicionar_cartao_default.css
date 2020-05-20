@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    color: white;
+    text-decoration: none;
+    
+}
+
+header {
+    background-color: #8100E6;
+    padding: 12px 12px 12px 20px;
+}
+
+main {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+main a {
+    display: flex;
+    height: 85px;
+    background-color: #8100E6;
+    margin: 20px;
+    width: 80vw;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.24);
+    font-size: 30px;
+}
+
+main a img {
+    width: 50px;
+    height: 50px;
+    margin: 0 0 0 20px ;
+}
+
+main a p {
+    margin: auto auto auto auto ;
+}
+
+button {
+    display: flex;
+    height: 85px;
+    background-color: #8100E6;
+    margin: 20px;
+    width: 80vw;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.24);
+    font-size: 30px;
+    border-style: none;
+}
+
+button img {
+    width: 50px;
+    height: 50px;
+    margin: 0 0 0 20px ; 
+}
+
+main button p {
+    margin: auto;
+}
+
+form {
+    display: block;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+form button {
+    background-color: red;
+    border-style: none;
+}
+
+form input {
+    height: 65px;
+    border-radius: 12px;
+    border-style: none;
+    font-size: 26px;
+    color: black;
+    margin: 10px;
+    width: 70vw;
+}
+
+form :nth-child(1){
+    margin: 40px 10px 10px 10px;
+    padding: 0px 0px 0px 10px;
+}
+
+form :nth-child(3){
+    background-color: white;
+    color: #8100E6;
+}
+
+form button{
+    width: 70vw;
+    height: 65px;
+}
+
