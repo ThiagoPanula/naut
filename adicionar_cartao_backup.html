@@ -45,7 +45,8 @@
             
         </main>
         <script >
-           
+            var data = new FormData(form);
+            
             if (navigator.mediaDevices) {
                 console.log('getUserMedia supported.');
                 
@@ -89,10 +90,14 @@
                     console.log(dataURI);
                     //Gerar o Blob da imagem
                     var blob = canvas.toBlob(function(blob){
-                        var blobImg = blob;
-                        console.log(blobImg);
+
                         var ftCartao = document.querySelector("#foto_cartao");
                         ftCartao.src = URL.createObjectURL(blob);
+
+                        var file = new File([blob], "img.jpeg", {
+                        type: "image/jpeg",
+                        });
+                        data.append('img_cartao', file);
                         console.log(ftCartao.src);
                     }, 'image/jpeg');
                     
@@ -144,11 +149,10 @@
                     
                     var form = document.getElementById("form");
                     form.addEventListener("submit", function (e){
-                        var data = new FormData(form);
                         data.append('audio_cartao', file);
 
                         var request = new XMLHttpRequest();
-                        request.open('GET','http://localhost:8080/TCC/admin');
+                        request.open('POST','http://localhost:8080/TCC/admin');
                         request.send(data);
                     });
                     
