@@ -83,6 +83,8 @@
                 
                     //Criando um canvas que vai guardar a imagem temporariamente
                     var canvas = document.querySelector('#snapshot');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
                     var ctx = canvas.getContext('2d');
                     
                     //Desenhando e convertendo as dimensões
