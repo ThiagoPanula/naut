@@ -86,7 +86,7 @@
                     //Criando o JPG
                     var dataURI = canvas.toDataURL('image/jpeg'); //O resultado é um BASE64 de uma imagem.
                    
-                    
+                    console.log(dataURI);
                     //Gerar o Blob da imagem
                     const byteCharacters = atob(dataURI);
                     const byteNumbers = new Array(byteCharacters.length);
@@ -100,6 +100,7 @@
                     const blob = new Blob([byteArray], {type:'image/jpeg'});
 
                     console.log(blob);
+                
                 }
 
 
