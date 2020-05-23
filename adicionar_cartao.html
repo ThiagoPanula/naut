@@ -31,7 +31,7 @@
                 <figcaption id=foto>
                     <img src="imagens/icone_foto_default.gif">
                     <canvas id="snapshot"></canvas>
-                    <video controls autoplay id=playerVideo></video>
+                    <video autoplay id=playerVideo></video>
                 </figcaption>
                 <button type="button" id="capture"><img src="imagens/.gif"></button>
                 <input type="text" name="nome_cartao">
@@ -64,13 +64,13 @@
 
                     captureButton.addEventListener('click', function() {
                         var context = snapshot.getContext('2d');
-                        context.drawImage(player, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
+                        context.drawImage(playerVideo, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
 
                         // Stop all video streams.
                         videoTracks.forEach(function(track) {track.stop()});
                     });
 
-                    navigator.mediaDevices.getUserMedia({video: true})
+                    navigator.mediaDevices.getUserMedia({video: true, audio: false})
                         .then(handleSuccess);
                 });
                 /*
