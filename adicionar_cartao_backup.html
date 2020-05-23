@@ -97,7 +97,7 @@
                     //Gerar o Blob da imagem
                     var blob = canvas.toBlob(function(blob){
 
-                        var ftCartao = document.querySelector("#foto_cartao");
+                        var ftCartao = document.querySelector("#foto_default");
                         ftCartao.src = URL.createObjectURL(blob);
 
                         var file = new File([blob], "img.jpeg", {
