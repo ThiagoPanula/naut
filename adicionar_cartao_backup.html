@@ -28,12 +28,13 @@
         </header>
         <main> 
             <form enctype="multipart/form-data" method="POST" id="form">
-                <figcaption id=foto onclick="loadCamera()">
-                    <img src="imagens/icone_foto_default.gif" id=foto_cartao>
+                <figcaption id=foto>
+                    <img src="imagens/icone_foto_default.gif" id=foto_default>
                     <canvas id="snapshot"></canvas>
                     <video autoplay id=playerVideo></video>
                 </figcaption>
-                <button type="button" id="capture" onclick="takeSnapShot()"><img src="imagens/.gif"></button>
+                <button type="button" id="" onclick="loadCamera()"><img src="imagens/.gif"></button>
+                <button type="button" id="" onclick="takeSnapShot()"><img src="imagens/.gif"></button>
                 <input type="text" name="nome_cartao">
                 <div>
                     <button type="button" id="record"><img src="imagens/icone_falar.gif"></button>
@@ -52,6 +53,8 @@
                 console.log('getUserMedia supported.');
                 
                 function loadCamera(){
+                var imgDefault = document.querySelector("foto_default");
+                imgDefault.style.display = "none";
                 //Captura elemento de vídeo
                 var video = document.querySelector("#playerVideo");
                     //As opções abaixo são necessárias para o funcionamento correto no iOS
@@ -84,7 +87,7 @@
                     
                     //Desenhando e convertendo as dimensões
                     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    
+
                     //
                     canvas.style.display = "block";
                     //Criando o JPG
