@@ -48,7 +48,7 @@
            
             if (navigator.mediaDevices) {
                 console.log('getUserMedia supported.');
-
+                
                 var figcaption = document.getElementById("foto");
 
                 figcaption.addEventListener('click', function(e){
@@ -76,24 +76,19 @@
                 
                 var constraints = { audio: true };
                 var chunks = [];
-
-                var record = document.getElementById('record');
-
-
-                record.onclick = function() {
-                        
-                        
-
-                        navigator.mediaDevices.getUserMedia(constraints)
+                navigator.mediaDevices.getUserMedia(constraints)
                 .then(function(stream) {
                     
                     var mediaRecorder = new MediaRecorder(stream);
                     
                     var playing = false;
                     var recording = false;
-                    
+                    var record = document.getElementById('record');
                     var stop = document.getElementById('stop');
-                    if (recording) {
+                    
+                    record.onclick = function() {
+                        
+                        if (recording) {
                             recording = false;
                             mediaRecorder.stop();
                             console.log(mediaRecorder.state);
@@ -104,7 +99,7 @@
                             console.log(mediaRecorder.state);
                             record.style.backgroundColor = "red";
                         }
-                   
+                    }
                     
                     mediaRecorder.onstop = function(e) {
                     console.log("data available after MediaRecorder.stop() called.");
@@ -157,8 +152,6 @@
                     console.log('The following error occurred: ' + err);
                 })
                 }
-                    }
-                
 
         </script>
         
