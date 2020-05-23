@@ -33,8 +33,7 @@
                     <canvas id="snapshot"></canvas>
                     <video autoplay id=playerVideo></video>
                 </figcaption>
-                <button type="button" id="" onclick="loadCamera()"><img src="imagens/.gif"></button>
-                <button type="button" id="" onclick="takeSnapShot()"><img src="imagens/.gif"></button>
+                <button type="button" id="capture" onclick="loadCamera()"><img src="imagens/.gif"></button>
                 <input type="text" name="nome_cartao">
                 <div>
                     <button type="button" id="record"><img src="imagens/icone_falar.gif"></button>
@@ -48,67 +47,78 @@
         <script>
             var form = document.getElementById("form");
             var data = new FormData(form);
+            var lodedCamera = false;
             
             if (navigator.mediaDevices) {
                 console.log('getUserMedia supported.');
-                
-                function loadCamera(){
-                var canvas = document.querySelector('#snapshot');
-                var imgDefault = document.querySelector("#foto_default");
-                imgDefault.style.display = "none";
-                canvas.style.display = "none";
-                //Captura elemento de vídeo
-                var video = document.querySelector("#playerVideo");
-                    //As opções abaixo são necessárias para o funcionamento correto no iOS
-                    video.setAttribute('autoplay', '');
-                    video.setAttribute('muted', '');
-                    video.setAttribute('playsinline', '');
-                    //--
-                    video.style.display = "block";
-                //Verifica se o navegador pode capturar mídia
-                
-                    navigator.mediaDevices.getUserMedia({audio: false, video: {facingMode: 'environment', width: 400, height: 400, }})
-                    .then( function(stream) {
-                        //Definir o elemento vídeo a carregar o capturado pela webcam
-                        video.srcObject = stream;
+                var capture = document.querySelector("#capture");
+                capture.addEventListener('click', function(e){
+                    if (lodedCamera) {
+                        lodedCamera = false;
+                        //Captura elemento de vídeo
+                        var video = document.querySelector("#playerVideo");
+                    
+                        //Criando um canvas que vai guardar a imagem temporariamente
+                        var canvas = document.querySelector('#snapshot');
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
+                        var ctx = canvas.getContext('2d');
                         
-                    })
-                    .catch(function(error) {
-                        alert("Oooopps... Falhou :'(");
-                    });
+                        //Desenhando e convertendo as dimensões
+                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                        //
+                        canvas.style.display = "block";
+                        //Criando o JPG
+                        var dataURI = canvas.toDataURL('image/jpeg'); //O resultado é um BASE64 de uma imagem.
+
+                        console.log(dataURI);
+                        //Gerar o Blob da imagem
+                        var blob = canvas.toBlob(function(blob){
+                        
+                            var file = new File([blob], "img.jpeg", {
+                            type: "image/jpeg",
+                            });
+                            data.append('img_cartao', file);
+                            console.log(file);
+                        }, 'image/jpeg');
+                        video.srcObject = null;
+                        video.style.display = "none";
+                    }else{
+                        lodedCamera = true;
+                        var canvas = document.querySelector('#snapshot');
+                        var imgDefault = document.querySelector("#foto_default");
+                        imgDefault.style.display = "none";
+                        canvas.style.display = "none";
+                        //Captura elemento de vídeo
+                        var video = document.querySelector("#playerVideo");
+                            //As opções abaixo são necessárias para o funcionamento correto no iOS
+                            video.setAttribute('autoplay', '');
+                            video.setAttribute('muted', '');
+                            video.setAttribute('playsinline', '');
+                            //--
+                            video.style.display = "block";
+                        //Verifica se o navegador pode capturar mídia
+                        
+                            navigator.mediaDevices.getUserMedia({audio: false, video: {facingMode: 'environment', width: 400, height: 400, }})
+                            .then( function(stream) {
+                                //Definir o elemento vídeo a carregar o capturado pela webcam
+                                video.srcObject = stream;
+                                
+                            })
+                            .catch(function(error) {
+                                alert("Oooopps... Falhou :'(");
+                            });
+                    }
+                });
+
+                function loadCamera(){
+               
                 }
             
 
                 function takeSnapShot(){
-                    //Captura elemento de vídeo
-                    var video = document.querySelector("#playerVideo");
-                
-                    //Criando um canvas que vai guardar a imagem temporariamente
-                    var canvas = document.querySelector('#snapshot');
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    var ctx = canvas.getContext('2d');
-                    
-                    //Desenhando e convertendo as dimensões
-                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-                    //
-                    canvas.style.display = "block";
-                    //Criando o JPG
-                    var dataURI = canvas.toDataURL('image/jpeg'); //O resultado é um BASE64 de uma imagem.
-
-                    console.log(dataURI);
-                    //Gerar o Blob da imagem
-                    var blob = canvas.toBlob(function(blob){
-                    
-                        var file = new File([blob], "img.jpeg", {
-                        type: "image/jpeg",
-                        });
-                        data.append('img_cartao', file);
-                        console.log(file);
-                    }, 'image/jpeg');
-                    video.srcObject = null;
-                    video.style.display = "none";
+                   
                 }
 
 
