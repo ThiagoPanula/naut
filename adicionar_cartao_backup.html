@@ -53,8 +53,8 @@
                 console.log('getUserMedia supported.');
                 
                 function loadCamera(){
-                //var imgDefault = document.querySelector("#foto_default");
-                //imgDefault.style.display = "none";
+                var imgDefault = document.querySelector("#foto_default");
+                imgDefault.style.display = "none";
                 //Captura elemento de vídeo
                 var video = document.querySelector("#playerVideo");
                     //As opções abaixo são necessárias para o funcionamento correto no iOS
@@ -98,10 +98,7 @@
                     console.log(dataURI);
                     //Gerar o Blob da imagem
                     var blob = canvas.toBlob(function(blob){
-
-                        var ftCartao = document.querySelector("#foto_default");
-                        ftCartao.src = URL.createObjectURL(blob);
-
+                    
                         var file = new File([blob], "img.jpeg", {
                         type: "image/jpeg",
                         });
