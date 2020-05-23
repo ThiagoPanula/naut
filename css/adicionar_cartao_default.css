@@ -39,6 +39,7 @@ button {
     border-style: none;
 }
 
+
 button img {
     width: 55px;
     height: 55px;
@@ -79,5 +80,27 @@ form input[type='submit']{
     font-size: 32px;
     border-radius: 12px;
     background-color: #8100E6;
+}
+
+figcaption img {
+    filter: grayscale(60%);
+    margin: auto;
+}
+
+figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D7D7D7;
+    width: 250px;
+    border-radius: 12px;
+    height: 250px;
+    margin: auto;
+}
+
+canvas, video {
+    width: 250px;
+    height: 250px;
+    display: none;
 }
 
