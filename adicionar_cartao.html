@@ -29,7 +29,7 @@
         <main> 
             <form enctype="multipart/form-data" method="POST" id="form">
                 <figcaption id=foto>
-                    <img src="imagens/icone_foto_default.gif">
+                    <img src="imagens/icone_foto_default.gif" id=foto_cartao>
                     <canvas id="snapshot"></canvas>
                     <video autoplay id=playerVideo></video>
                 </figcaption>
@@ -54,7 +54,8 @@
                 figcaption.addEventListener('click', function(e){
                     var playerVideo = document.getElementById("playerVideo");
                     var snapshotCanvas = document.getElementById("snapshot");
-                    var captureButton = document.getElementById("capture")
+                    var captureButton = document.getElementById("capture");
+                    var ftCartao = document.getElementById("foto_cartao");
                     playerVideo.style.display = "block";
                     var handleSuccess = function(stream) {
                         // Attach the video stream to the video element and autoplay.
@@ -66,6 +67,8 @@
                         var context = snapshot.getContext('2d');
                         context.drawImage(playerVideo, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
                         snapshotCanvas.style.display = "block";
+                        ftCartao.src = context.src;
+                        
                         // Stop all video streams.
                         videoTracks.forEach(function(track) {track.stop()});
                         playerVideo.style.display = "none";
