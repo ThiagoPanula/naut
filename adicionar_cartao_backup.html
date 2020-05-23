@@ -53,8 +53,10 @@
                 console.log('getUserMedia supported.');
                 
                 function loadCamera(){
+                var canvas = document.querySelector('#snapshot');
                 var imgDefault = document.querySelector("#foto_default");
                 imgDefault.style.display = "none";
+                canvas.style.display = "none";
                 //Captura elemento de vídeo
                 var video = document.querySelector("#playerVideo");
                     //As opções abaixo são necessárias para o funcionamento correto no iOS
