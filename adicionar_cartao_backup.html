@@ -66,15 +66,7 @@
                     .then( function(stream) {
                         //Definir o elemento vídeo a carregar o capturado pela webcam
                         video.srcObject = stream;
-                        
-                    })
-                    .catch(function(error) {
-                        alert("Oooopps... Falhou :'(");
-                    });
-                }
-            
-
-                function takeSnapShot(){
+                        function takeSnapShot(){
                     //Captura elemento de vídeo
                     var video = document.querySelector("#playerVideo");
                     var videoTracks = stream.getVideoTracks();
@@ -105,6 +97,14 @@
                     }, 'image/jpeg');
                     
                 }
+                    })
+                    .catch(function(error) {
+                        alert("Oooopps... Falhou :'(");
+                    });
+                }
+            
+
+                
 
 
                 var constraints = { audio: true };
