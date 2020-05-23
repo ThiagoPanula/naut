@@ -44,7 +44,8 @@
             </form>
             
         </main>
-        <script >
+        <script>
+            var form = document.getElementById("form");
             var data = new FormData(form);
             
             if (navigator.mediaDevices) {
@@ -147,7 +148,7 @@
                     });
                     
                     
-                    var form = document.getElementById("form");
+                   
                     form.addEventListener("submit", function (e){
                         data.append('audio_cartao', file);
 
