@@ -66,11 +66,19 @@
                     .then( function(stream) {
                         //Definir o elemento vídeo a carregar o capturado pela webcam
                         video.srcObject = stream;
-                        function takeSnapShot(){
+                        
+                    })
+                    .catch(function(error) {
+                        alert("Oooopps... Falhou :'(");
+                    });
+                }
+            
+
+                function takeSnapShot(){
                     //Captura elemento de vídeo
                     var video = document.querySelector("#playerVideo");
-                    var videoTracks = stream.getVideoTracks();
-                    videoTracks.forEach(function(track) {track.stop()});
+                    video.srcObject = null;
+                    
                     //Criando um canvas que vai guardar a imagem temporariamente
                     var canvas = document.querySelector('#snapshot');
                     var ctx = canvas.getContext('2d');
@@ -97,14 +105,6 @@
                     }, 'image/jpeg');
                     
                 }
-                    })
-                    .catch(function(error) {
-                        alert("Oooopps... Falhou :'(");
-                    });
-                }
-            
-
-                
 
 
                 var constraints = { audio: true };
