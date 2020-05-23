@@ -90,13 +90,10 @@
                     //Gerar o Blob da imagem
                     var blob = canvas.toBlob(function(blob){
                         console.log(blob);
+                        var ftCartao = document.querySelector("#foto_cartao");
+                        ftCartao.src = URL.createObjectURL(blob);
+                    
                     }, 'image/jpeg');
-
-                    
-                    // Mostrar imagem
-                    var ftCartao = document.querySelector("#foto_cartao");
-                    ftCartao.src = URL.createObjectURL(blob);
-                    
                 
                 }
 
