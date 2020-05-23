@@ -28,11 +28,12 @@
         </header>
         <main> 
             <form enctype="multipart/form-data" method="POST" id="form">
-                <figcaption id=foto>
+                <div id=foto>
                     <img src="imagens/icone_foto_default.gif" id=foto_default>
                     <canvas id="snapshot"></canvas>
                     <video autoplay id=playerVideo></video>
-                </figcaption>
+                </div>
+
                 <button type="button" id="capture"><img src="imagens/.gif"></button>
                 <input type="text" name="nome_cartao">
                 <div>
@@ -84,12 +85,14 @@
                         }, 'image/jpeg');
                         video.srcObject = null;
                         video.style.display = "none";
+                        capture.style.backgroundColor = "#8100E6";
                     }else{
                         lodedCamera = true;
                         var canvas = document.querySelector('#snapshot');
                         var imgDefault = document.querySelector("#foto_default");
                         imgDefault.style.display = "none";
                         canvas.style.display = "none";
+                        capture.style.backgroundColor = "green";
                         //Captura elemento de vídeo
                         var video = document.querySelector("#playerVideo");
                             //As opções abaixo são necessárias para o funcionamento correto no iOS
