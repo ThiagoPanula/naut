@@ -55,7 +55,7 @@
                     var playerVideo = document.getElementById("playerVideo");
                     var snapshotCanvas = document.getElementById("snapshot");
                     var captureButton = document.getElementById("capture")
-
+                    playerVideo.style.display = "block";
                     var handleSuccess = function(stream) {
                         // Attach the video stream to the video element and autoplay.
                         playerVideo.srcObject = stream;
@@ -65,9 +65,10 @@
                     captureButton.addEventListener('click', function() {
                         var context = snapshot.getContext('2d');
                         context.drawImage(playerVideo, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
-
+                        snapshotCanvas.style.display = "block";
                         // Stop all video streams.
                         videoTracks.forEach(function(track) {track.stop()});
+                        playerVideo.style.display = "none";
                     });
 
                     navigator.mediaDevices.getUserMedia({video: true, audio: false})
