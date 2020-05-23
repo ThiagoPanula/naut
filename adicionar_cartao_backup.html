@@ -77,14 +77,14 @@
                 function takeSnapShot(){
                     //Captura elemento de vídeo
                     var video = document.querySelector("#playerVideo");
-                    video.srcObject = null;
-                    
+                
                     //Criando um canvas que vai guardar a imagem temporariamente
                     var canvas = document.querySelector('#snapshot');
                     var ctx = canvas.getContext('2d');
                     
                     //Desenhando e convertendo as dimensões
                     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    
                     //
                     canvas.style.display = "block";
                     //Criando o JPG
@@ -103,7 +103,7 @@
                         data.append('img_cartao', file);
                         console.log(file);
                     }, 'image/jpeg');
-                    
+                    video.srcObject = null;
                 }
 
 
