@@ -40,7 +40,7 @@
                     <button type="button" id="stop"><img src="imagens/icone_play.gif" id="imgPlay"></button>
                 </div>
                 <audio id="player" controls></audio>
-                <input type="submit" value="addd">
+                <input type="submit" value="adicionar">
             </form>
             
         </main>
@@ -62,7 +62,7 @@
                     video.style.display = "block";
                 //Verifica se o navegador pode capturar mídia
                 
-                    navigator.mediaDevices.getUserMedia({audio: false, video: {facingMode: 'environment'}})
+                    navigator.mediaDevices.getUserMedia({audio: false, video: {facingMode: 'environment', width: 400, height: 400, }})
                     .then( function(stream) {
                         //Definir o elemento vídeo a carregar o capturado pela webcam
                         video.srcObject = stream;
