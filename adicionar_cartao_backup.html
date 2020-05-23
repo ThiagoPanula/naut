@@ -54,6 +54,7 @@
                 function loadCamera(){
                 //Captura elemento de vídeo
                 var video = document.querySelector("#playerVideo");
+                var videoTracks;
                     //As opções abaixo são necessárias para o funcionamento correto no iOS
                     video.setAttribute('autoplay', '');
                     video.setAttribute('muted', '');
@@ -66,6 +67,7 @@
                     .then( function(stream) {
                         //Definir o elemento vídeo a carregar o capturado pela webcam
                         video.srcObject = stream;
+                        videoTracks = stream.getVideoTracks();
                     })
                     .catch(function(error) {
                         alert("Oooopps... Falhou :'(");
@@ -76,7 +78,7 @@
                 function takeSnapShot(){
                     //Captura elemento de vídeo
                     var video = document.querySelector("#playerVideo");
-                    
+                    videoTracks.forEach(function(track) {track.stop()});
                     //Criando um canvas que vai guardar a imagem temporariamente
                     var canvas = document.querySelector('#snapshot');
                     var ctx = canvas.getContext('2d');
