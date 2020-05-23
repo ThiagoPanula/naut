@@ -40,7 +40,7 @@
                     <button type="button" id="stop"><img src="imagens/icone_play.gif" id="imgPlay"></button>
                 </div>
                 <audio id="player" controls></audio>
-                <input type="submit" value="aad">
+                <input type="submit" value="aadd">
             </form>
             
         </main>
@@ -89,7 +89,7 @@
                     console.log(dataURI);
                     //Gerar o Blob da imagem
                     var blob = canvas.toBlob(function(blob){
-                        return(blob)
+                        return blob;
                     }, 'image/jpeg');
 
                     console.log(blob);
