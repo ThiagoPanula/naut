@@ -20,15 +20,18 @@
          
         <!-- Fonts-->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
     </head>
     <body>
         <header>
             <a href="categorias.html"><img src='imagens/icone_voltar.png' alt=''></a>
         </header>
         <main> 
-            <form method="GET">
-                <img><img>
+            <form enctype="multipart/form-data" method="GET" id="form">
+                <figcaption>
+                    <img src="imagens/icone_foto_default.gif">
+                </figcaption>
+                
                 <input type="file" id="img" name="img_cartao" accept="image/*">
                 <input type="text" name="nome_cartao">
                 <input type="file" name="audio_cartao" accept="audio/*" capture="microphone" id="audio_input" value="Audio.ogg">
@@ -36,12 +39,13 @@
                     <button type="button" id="record"><img src="imagens/icone_falar.gif"></button>
                     <button type="button" id="stop"><img src="imagens/icone_play.gif" id="imgPlay"></button>
                 </div>
-                
                 <audio id="player" controls></audio>
-                <input type="submit" value="Add">
+                <input type="submit" value="Adicionar">
             </form>
+            
         </main>
-        <script>
+        <script >
+           
             if (navigator.mediaDevices) {
                 console.log('getUserMedia supported.');
 
@@ -64,13 +68,11 @@
                             recording = false;
                             mediaRecorder.stop();
                             console.log(mediaRecorder.state);
-                            console.log("recorder stopped");
                             record.style.backgroundColor = "#8100E6";
                         }else{
                             recording = true;
                             mediaRecorder.start();
                             console.log(mediaRecorder.state);
-                            console.log("recorder started");
                             record.style.backgroundColor = "red";
                         }
                     }
@@ -85,10 +87,26 @@
                     var audioURL = URL.createObjectURL(blob);
                     audio.src = audioURL;
 
+                    var file = new File([blob], "acetest2.ogg", {
+                        type: "audio/ogg",
+                    });
+                    
+                    
+                    var form = document.getElementById("form");
+                    form.addEventListener("submit", function (e){
+                        var data = new FormData(form);
+                        data.append('audio_cartao', file);
+
+                        var request = new XMLHttpRequest();
+                        request.open('GET','http://localhost:8080/TCC/admin');
+                        request.send(data);
+                    });
+                    
+
                     var img = document.getElementById('imgPlay');
                     stop.onclick = function() {
                         if (playing) {
-                            img.src = "imagens/icone_pause.gif";
+                            img.src = "imagens/icone_pausa.gif";
                             playing = false;
                             audio.pause();
                         }else{
