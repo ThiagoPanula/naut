@@ -27,14 +27,14 @@
             <a href="categorias.html"><img src='imagens/icone_voltar.png' alt=''></a>
         </header>
         <main> 
-            <form enctype="multipart/form-data" method="GET" id="form">
-                <figcaption>
+            <form enctype="multipart/form-data" method="POST" id="form">
+                <figcaption id=foto>
                     <img src="imagens/icone_foto_default.gif">
+                    <canvas id="snapshot"></canvas>
+                    <video autoplay id=playerVideo></video>
                 </figcaption>
-                
-                <input type="file" id="img" name="img_cartao" accept="image/*">
+                <button type="button" id="capture"><img src="imagens/.gif"></button>
                 <input type="text" name="nome_cartao">
-                <input type="file" name="audio_cartao" accept="audio/*" capture="microphone" id="audio_input" value="Audio.ogg">
                 <div>
                     <button type="button" id="record"><img src="imagens/icone_falar.gif"></button>
                     <button type="button" id="stop"><img src="imagens/icone_play.gif" id="imgPlay"></button>
@@ -48,10 +48,34 @@
            
             if (navigator.mediaDevices) {
                 console.log('getUserMedia supported.');
+                
+                var figcaption = document.getElementById("foto");
 
+                figcaption.addEventListener('click', function(e){
+                    var playerVideo = document.getElementById("playerVideo");
+                    var snapshotCanvas = document.getElementById("snapshot");
+                    var captureButton = document.getElementById("capture")
+
+                    var handleSuccess = function(stream) {
+                        // Attach the video stream to the video element and autoplay.
+                        player.srcObject = stream;
+                        videoTracks = stream.getVideoTracks();
+                    };
+
+                    captureButton.addEventListener('click', function() {
+                        var context = snapshot.getContext('2d');
+                        context.drawImage(player, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
+
+                        // Stop all video streams.
+                        videoTracks.forEach(function(track) {track.stop()});
+                    });
+
+                    navigator.mediaDevices.getUserMedia({video: true})
+                        .then(handleSuccess);
+                });
+                
                 var constraints = { audio: true };
                 var chunks = [];
-
                 navigator.mediaDevices.getUserMedia(constraints)
                 .then(function(stream) {
                     
