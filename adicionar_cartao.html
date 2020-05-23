@@ -67,6 +67,7 @@
                         var context = snapshot.getContext('2d');
                         context.drawImage(playerVideo, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
                         snapshotCanvas.style.display = "block";
+                        console.log(context);
                         ftCartao.src = context.src;
                         
                         // Stop all video streams.
