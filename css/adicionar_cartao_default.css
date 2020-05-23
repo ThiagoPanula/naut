@@ -102,5 +102,6 @@ canvas, video {
     width: 250px;
     height: 250px;
     display: none;
+    border-radius: 12px;
 }
 
