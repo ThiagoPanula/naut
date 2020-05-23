@@ -33,7 +33,7 @@
                     <canvas id="snapshot"></canvas>
                     <video autoplay id=playerVideo></video>
                 </figcaption>
-                <button type="button" id="capture" onclick="loadCamera()"><img src="imagens/.gif"></button>
+                <button type="button" id="capture"><img src="imagens/.gif"></button>
                 <input type="text" name="nome_cartao">
                 <div>
                     <button type="button" id="record"><img src="imagens/icone_falar.gif"></button>
@@ -111,16 +111,6 @@
                             });
                     }
                 });
-
-                function loadCamera(){
-               
-                }
-            
-
-                function takeSnapShot(){
-                   
-                }
-
 
                 var constraints = { audio: true };
                 var chunks = [];
