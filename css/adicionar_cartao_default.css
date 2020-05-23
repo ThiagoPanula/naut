@@ -82,14 +82,14 @@ form input[type='submit']{
     background-color: #8100E6;
 }
 
-figcaption img {
+#foto img {
     filter: grayscale(60%);
     margin: auto;
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 60px;
 }
 
-figcaption {
+#foto {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,3 +107,7 @@ canvas, video {
     border-radius: 12px;
 }
 
+#capture {
+    width: 70vw;
+    margin: 20px auto 20px auto;
+}
