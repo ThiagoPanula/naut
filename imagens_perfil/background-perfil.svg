@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 320 650" style="enable-background:new 0 0 320 650;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);}
+	.st2{fill:#4B8CF7;}
+</style>
+<g id="Back">
+</g>
+<g>
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="178.8176" y1="401.8533" x2="289.7382" y2="600.5044" gradientTransform="matrix(1 0 0 -1 0 652)">
+		<stop  offset="0" style="stop-color:#0067FF"/>
+		<stop  offset="1" style="stop-color:#1762F0"/>
+	</linearGradient>
+	<path class="st0" d="M320.24,0.25H175.37C129.12,29.43,98.4,80.93,98.4,139.6c0,90.99,73.87,164.74,164.99,164.74
+		c19.98,0,39.13-3.54,56.86-10.04V0.25H320.24z"/>
+	
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="0.2525" y1="495.215" x2="294.3833" y2="495.215" gradientTransform="matrix(1 0 0 -1 0 652)">
+		<stop  offset="0" style="stop-color:#1869EF"/>
+		<stop  offset="0.4313" style="stop-color:#116BF4"/>
+		<stop  offset="1" style="stop-color:#0070FF"/>
+	</linearGradient>
+	<path class="st1" d="M0.25,0.25v286.81c28.86,16.7,62.38,26.27,98.14,26.27c108.25,0,195.99-87.61,195.99-195.69
+		c0-44.04-14.58-84.69-39.17-117.38C255.21,0.25,0.25,0.25,0.25,0.25z"/>
+	<g>
+		<ellipse class="st2" cx="172.73" cy="87.15" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="172.73" cy="100.19" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="185.79" cy="87.15" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="185.79" cy="100.19" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="198.86" cy="87.15" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="198.86" cy="100.19" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="211.93" cy="100.19" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="224.99" cy="100.19" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="211.93" cy="87.15" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="224.99" cy="87.15" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="172.82" cy="112.6" rx="2.43" ry="2.43"/>
+		<ellipse class="st2" cx="172.73" cy="113.24" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="172.73" cy="126.29" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="238.06" cy="87.15" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="238.06" cy="100.19" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="185.79" cy="113.24" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="185.79" cy="126.29" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="198.86" cy="113.24" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="198.86" cy="126.29" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="211.93" cy="126.29" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="211.93" cy="113.24" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="224.99" cy="113.24" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="224.99" cy="126.29" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="238.06" cy="126.29" rx="2.33" ry="2.33"/>
+		<ellipse class="st2" cx="238.06" cy="113.24" rx="2.33" ry="2.33"/>
+	</g>
+</g>
+</svg>

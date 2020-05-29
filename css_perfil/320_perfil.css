@@ -1,0 +1,125 @@
+#container{
+  background-image: url(../imagens_perfil/background-perfil.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100%;
+  top: 0;
+  padding-top: 1vw;
+  background-color: #f2f2f2;
+}
+#voltar{
+  display: inline-flex;
+  height: 8vw;
+  margin: 6vw 0 0 3vw;
+}
+h1{
+  color: #fff;
+  font-size: 7vw;
+  margin: -5vw 0 0 17vw;
+  display: inline-flex;
+  vertical-align: middle;
+}
+figure{
+  margin: 0 0 0 0;
+  display: inline;
+}
+#perfil{
+  height: 55vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h2{
+  color: #fff;
+  text-align: center;
+  font-size: 8vw;
+  margin: -6vw 0 0 0;
+}
+.acoes{
+  display: inline-block;
+  border-width: 0px;
+  width: 42vw;
+  height: 41vw;
+  background: inherit;
+  background-color: rgba(242, 242, 242, 1);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.349019607843137);
+  margin-left: 3vw;
+  margin-top: 10vw;
+}
+.icone_acoes {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 25vw;
+  padding-top: 4vw;
+}
+#plano{
+  display: inline-block;
+  border-width: 0px;
+  width: 42vw;
+  height: 41vw;
+  background: inherit;
+  background-color: rgba(242, 242, 242, 1);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.349019607843137);
+  margin-left: 3vw;
+  margin-top: 5vw;
+}
+figcaption{
+  text-align: center;
+  padding-top: 2vw;
+  font-weight: bold;
+}
+a{
+  text-decoration:none;
+  color: #000;
+}
+#icone1{
+  height: 17vw;
+  display: inline-block;
+  margin-top: 10vw;
+}
+#editar{
+  display: inline-flex;
+  vertical-align: middle;
+  margin: -15vw 0 0 0;
+  font-weight: normal;
+}
+#figure_seta1{
+  margin: 16vw 0 0 45vw;
+  display: inline-flex;
+  position: absolute;
+}
+#excluir{
+  display: inline-flex;
+  vertical-align: middle;
+  margin: -15vw 0 0 0;
+  font-weight: normal;
+}
+#figure_seta2{
+  margin: 7vw 0 0 43vw;
+  display: inline-flex;
+  position: absolute;
+}
+#sair{
+  display: inline-flex;
+  vertical-align: middle;
+  margin: -15vw 0 0 0;
+  font-weight: normal;
+}
+#figure_seta3{
+  margin: 6vw 0 0 60vw;
+  display: inline-flex;
+  position: absolute;
+}
+.seta_preta{
+  height: 4vw;
+  margin: 0 0 0 0  ;
+}
+.icone{
+  height: 17vw;
+  display: inline-block;
+}
